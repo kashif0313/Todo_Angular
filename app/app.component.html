@@ -1,0 +1,30 @@
+<div class="calculatorContainer">
+    <h1>My ToDos</h1>
+    <div class="todoInput"><textarea class="inputField" type="text" [(ngModel)]="User"
+            placeholder="Add note Here"></textarea>
+        <button (click)="addNote()" class="addButton">Add</button>
+    </div>
+
+    <div class="arrrayData">
+        <hr><br>
+
+        <table>
+            <th>#</th>
+            <th>Date</th>
+            <th>To-do</th>
+            <th>In progress</th>
+            <th>Done</th>
+            <tr *ngFor="let i of arrayData; index as ind">
+                <td *ngIf="ind != 0">{{ind}}</td>
+                <td *ngIf="ind != 0">{{myDate}}</td>
+
+
+                <td *ngIf="ind > 0" #idNO>{{i}}</td>
+                <td *ngIf="ind != 0">
+                    <app-checkbox [cheBox]="1"></app-checkbox>
+                </td>
+                <td *ngIf="ind > 0"><button class="doneButton" (click)="deleteTodo(ind)"> Done</button></td>
+            </tr>
+        </table>
+    </div>
+</div>
